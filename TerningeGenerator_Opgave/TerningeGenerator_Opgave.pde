@@ -43,11 +43,12 @@ void keyPressed() {
     text("DIT KAST BLEV: " + kast[x], 800, 100);
     println("Dit kast var: " +(kast [x]));
     
-  }
-  }
+ }
+}
+
+
   else{
     if (key == 's'){
-      ;
       
     }
   }
