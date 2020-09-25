@@ -7,23 +7,44 @@
 //OPGAVE: lav arrays, variabler til at gemme terningkast og fordeling af terningekast
 
 void setup() {
-  size(600, 800);
+  size(1200, 800);
   clear();
-  text("TRYK på 'k' FOR AT KASTE", 50, 50);
+  textSize(30);
+    
+
 }
 
 void draw() {
+ 
+  text("TRYK PÅ 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 200, 100);
+  
+  
+
 }
 
 void keyPressed() {
-  clear();
-  text("TRYK på 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 50, 50);
+   clear();
+
 
   if (key=='k') {
+    
     //OPGAVE:  lav manglende funktion der laver 'terningekast'. 
-    int kast = lavTerningeKast(1, 6);
-    text("DIT KAST BLEV:" + kast, 50, 75);
+    
+    int kast =  int(random(1, 7));
+    text("DIT KAST BLEV:" + kast, 500, 700);
+   
+   
   }
+  int[] kast = new int[10];
+  
+  for(int x = 0 ; x <= 9 ; x++){
+     kast[x] = x + 1;
+  }
+  println("Dit kast blev:" + kast);
+    
+  }
+
+/*
 
   if (key == 's') {
     //OPGAVE:  lav manglende funktion til at et terningekast
@@ -35,3 +56,4 @@ void keyPressed() {
   //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
   udskrivKast();
 }
+*/
