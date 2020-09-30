@@ -8,7 +8,7 @@
 
 //Setup
 
-int antalKast = 100000;
+int antalKast = 22;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 
@@ -25,10 +25,7 @@ void setup() {
 
 void draw() {
  text("TRYK PÅ 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 200, 100);
-  
 }
-
-
 
 void keyPressed() {
    
@@ -40,22 +37,18 @@ void keyPressed() {
     kastBrugt ++;
     
    text("DIT KAST BLEV: " + kast, 800, 100);
-   println("Dit kast var: " +(kast));
-
-
-     
-   
-   
+   println("Dit kast var: " +(kast)); 
   }
+  udskrivKast();
 }
-
-void unskrivKast(){
+void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
-       text("Kast " + (i + 1) + "blev: " + alleKast[i], 400, (50 + (i * 30)));
+       text("Kast " + (i + 1) + " blev:  " + alleKast[i], 800, (150 + (i * 30)));
      }
    }
 }
+
 int lavTerningeKast(int min, int max) {
   int nyesteKast = (int(random(min, max + 1)));
   return nyesteKast;
