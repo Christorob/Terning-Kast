@@ -13,7 +13,7 @@ int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 int kast;
 int kastValue = kast;
-int[] histogram = new int[kastValue];
+int[] histogram1 = new int[kast];
 
 void setup() {
   size(1200, 800);
@@ -50,29 +50,26 @@ void keyPressed() {
     println("Dit kast var: " +(kast)); 
 }
   else {
-    text("Du har brugt alle dine kast!", 200, 200);
     fill(255, 50, 50, 255);
+    text("Du har brugt alle dine kast!", 200, 200);
       println("Du har brugt alle dine kast!");
+    
     }
   udskrivKast();
-  }
+}
+
   /*
   if (key=='s'){
     kastBrugt += -1;
     
-   
-    
   }
   */
-}
-  
+
+}  
 int lavTerningeKast(int min, int max) {
   int nyesteKast = (int(random(min, max + 1)));
   return nyesteKast;
-}
-   
-   
+}   
   //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
  // tegnFordeling();
   //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
-  //udskrivKast();
