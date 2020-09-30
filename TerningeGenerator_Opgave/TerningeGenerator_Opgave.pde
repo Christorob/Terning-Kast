@@ -12,7 +12,6 @@ int antalKast = 22;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 
-
 void setup() {
   size(1200, 800);
   clear();
@@ -20,35 +19,38 @@ void setup() {
   frameRate(69);
 }
 
-
 //Draw
-
 void draw() {
  text("TRYK PÅ 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 200, 100);
 }
 
-void keyPressed() {
-   
-//Kast
-  if (key=='k') {
-
-    int kast = lavTerningeKast(1,6);
-    alleKast[kastBrugt] = kast;
-    kastBrugt ++;
-    
-   text("DIT KAST BLEV: " + kast, 800, 100);
-   println("Dit kast var: " +(kast)); 
-  }
-  udskrivKast();
-}
 void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
        text("Kast " + (i + 1) + " blev:  " + alleKast[i], 800, (150 + (i * 30)));
-     }
-   }
+    }
+  }
 }
 
+void keyPressed() {
+   clear();
+   
+//Kast
+  if (key=='k') {
+    if(kastBrugt != antalKast && kastBrugt <= antalKast){
+    int kast = lavTerningeKast(1,6);
+    alleKast[kastBrugt] = kast;
+    kastBrugt ++;    
+    text("DIT KAST BLEV: " + kast, 800, 100);
+    println("Dit kast var: " +(kast)); 
+}
+  else {
+    text("Du har ikke flere kast at bruge!", 200, 200);
+    }
+  udskrivKast();
+  }
+}
+  
 int lavTerningeKast(int min, int max) {
   int nyesteKast = (int(random(min, max + 1)));
   return nyesteKast;
