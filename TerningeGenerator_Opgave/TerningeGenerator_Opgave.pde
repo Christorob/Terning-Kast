@@ -6,6 +6,11 @@
 
 //OPGAVE: lav arrays, variabler til at gemme terningkast og fordeling af terningekast
 
+//Setup
+
+int antalKast = 100000;
+int[] alleKast = new int[antalKast];
+int kastBrugt = 0;
 
 
 void setup() {
@@ -16,61 +21,48 @@ void setup() {
 }
 
 
+//Draw
 
 void draw() {
  text("TRYK PÅ 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 200, 100);
   
-  
-
 }
+
+
 
 void keyPressed() {
-   clear();
-
-
+   
+//Kast
   if (key=='k') {
+
+    int kast = lavTerningeKast(1,6);
+    alleKast[kastBrugt] = kast;
+    kastBrugt ++;
     
-    //OPGAVE:  lav manglende funktion der laver 'terningekast'. 
+   text("DIT KAST BLEV: " + kast, 800, 100);
+   println("Dit kast var: " +(kast));
+
+
      
-  int[] kast = new int[7];
-  int R = (int(random(1, 7)));
-  for(int x = 0 ; x <= 0 ; x++){
-     kast[x] = R;
-    int kastNummer = (x)+1;
-  
-    text("Kast " + kastNummer + " var: " + kast[x], 800, 150 + 20*x);
-  
-    text("DIT KAST BLEV: " + kast[x], 800, 100);
-    println("Dit kast var: " +(kast [x]));
-    
- }
+   
+   
+  }
 }
 
-
-  else{
-    if (key == 's'){
-      
-    }
-  }
- }
-
-
-
-
-
-
-/*
-
-  if (key == 's') {
-    //OPGAVE:  lav manglende funktion til at et terningekast
-    sletKast();
-  }
-  
+void unskrivKast(){
+   for(int i=0; i < alleKast.length; i++){
+     if(alleKast[i] !=0){
+       text("Kast " + (i + 1) + "blev: " + alleKast[i], 400, (50 + (i * 30)));
+     }
+   }
+}
+int lavTerningeKast(int min, int max) {
+  int nyesteKast = (int(random(min, max + 1)));
+  return nyesteKast;
+}
+   
+   
   //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
  // tegnFordeling();
   //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
   //udskrivKast();
-}
-
-
-*/
