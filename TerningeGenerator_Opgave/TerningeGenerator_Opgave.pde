@@ -8,15 +8,19 @@
 
 //Setup
 
-int antalKast = 22;
+int antalKast = 20;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
+int kast;
+int kastValue = kast;
+int[] histogram = new int[kastValue];
 
 void setup() {
   size(1200, 800);
   clear();
   textSize(20);
   frameRate(69);
+  fill(0, 255, 50, 255);
 }
 
 //Draw
@@ -27,7 +31,8 @@ void draw() {
 void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
-       text("Kast " + (i + 1) + " blev:  " + alleKast[i], 800, (150 + (i * 30)));
+       text("Kast " + (i + 1) + " blev:", 800, (150 + (i * 30)));
+       text(" " + alleKast[i], 950, (150 + (i*30)));
     }
   }
 }
@@ -45,10 +50,20 @@ void keyPressed() {
     println("Dit kast var: " +(kast)); 
 }
   else {
-    text("Du har ikke flere kast at bruge!", 200, 200);
+    text("Du har brugt alle dine kast!", 200, 200);
+    fill(255, 50, 50, 255);
+      println("Du har brugt alle dine kast!");
     }
   udskrivKast();
   }
+  /*
+  if (key=='s'){
+    kastBrugt += -1;
+    
+   
+    
+  }
+  */
 }
   
 int lavTerningeKast(int min, int max) {
