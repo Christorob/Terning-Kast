@@ -128,6 +128,12 @@ void udskrivKast(){
      }
   }
 }
+void totalKast(){
+  totalKast = ((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6));
+  text("Total værdi af dine kast: " + totalKast, 50, 175);
+  text("Gennemsnittelige værdi per kast: " + (totalKast / kastBrugt), 50, 225);
+
+}
 void keyPressed() {
    clear();
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
@@ -152,7 +158,7 @@ void keyPressed() {
 }
   else {
     fill(255, 50, 50, 255);
-    text("DU HAR BRUGT ALLE DINE KAST!", 125, 200);
+    text("DU HAR BRUGT ALLE DINE KAST!", 140, 300);
       println("Du har brugt alle dine kast!");
   }
 }
@@ -165,11 +171,13 @@ void keyPressed() {
     }
   } 
   if(((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6)) == 69){
-    text("Nice.", 150, 150);
+    text("Nice.", 375, 175);
     println("Nice.");
   }else{
-      text("Not nice.", 50, 150);
-  }
+    text("Not nice.", 375, 175);
+
+}
 kastHistogram();
 udskrivKast();
+totalKast();
 }
