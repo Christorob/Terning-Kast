@@ -13,7 +13,15 @@ int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 int kast;
 int kastValue = kast;
-int[] histogram1 = new int[kast];
+
+// Histogram int
+
+int kastUno = 0;
+int kastDos = 0;
+int kastTres = 0;
+int kastCuatro = 0;
+int kastCinco = 0;
+int kastSeis = 0;
 
 void setup() {
   size(1200, 800);
@@ -21,24 +29,26 @@ void setup() {
   textSize(20);
   frameRate(69);
   fill(0, 255, 50, 255);
+  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
 }
 
 //Draw
 void draw() {
- text("TRYK PÅ 'k' FOR AT KASTE / OG 's' FOR AT SLETTE", 200, 100);
+
 }
 
 void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
-       text("Kast " + (i + 1) + " blev:", 800, (150 + (i * 30)));
-       text(" " + alleKast[i], 950, (150 + (i*30)));
-    }
+       text("Kast " + (i + 1) + " blev:", 900, (150 + (i * 30)));
+       text(" " + alleKast[i], 1049, (150 + (i*30)));
+     }
   }
 }
 
 void keyPressed() {
    clear();
+    text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
    
 //Kast
   if (key=='k') {
@@ -46,7 +56,7 @@ void keyPressed() {
     int kast = lavTerningeKast(1,6);
     alleKast[kastBrugt] = kast;
     kastBrugt ++;    
-    text("DIT KAST BLEV: " + kast, 800, 100);
+    text("DIT KAST BLEV: " + kast, 900, 100);
     println("Dit kast var: " +(kast)); 
 }
   else {
@@ -69,7 +79,9 @@ void keyPressed() {
 int lavTerningeKast(int min, int max) {
   int nyesteKast = (int(random(min, max + 1)));
   return nyesteKast;
-}   
-  //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
+   
+    
+}
+//OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
  // tegnFordeling();
   //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
