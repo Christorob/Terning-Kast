@@ -35,12 +35,12 @@ void setup() {
     //Histogram Text osv.
   noStroke();
   text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
-  text("1'ere", 50, 700);
-  text("2'ere", 50, 700);
-  text("3'ere", 50, 700);
-  text("4'ere", 50, 700);
-  text("5'ere", 50, 700);
-  text("6'ere", 50, 700);
+  text("1'ere", 050, 700);
+  text("2'ere", 150, 700);
+  text("3'ere", 250, 700);
+  text("4'ere", 350, 700);
+  text("5'ere", 450, 700);
+  text("6'ere", 550, 700);
 }
 
 //Draw
@@ -66,8 +66,70 @@ if(nyesteKast == 1){
 }if(nyesteKast == 6){
   kastSeis++;
 }
-return nyesteKast;
+return nyesteKast;   
+}
+
+//Slet sidste kast
+void sletSidsteKast(){
+ if(alleKast[0] != 0 && alleKast[0] > 0){
+       //1
+   if(alleKast[kastBrugt-1] == 1){
+     kastUno--;
+    }
+       //2
+   if(alleKast[kastBrugt-1] == 2){
+     kastDos--;
+    }
+       //3
+   if(alleKast[kastBrugt-1] == 3){
+     kastTres--;
+    }
+       //4
+   if(alleKast[kastBrugt-1] == 4){
+     kastCuatro--;
+    }
+       //5
+   if(alleKast[kastBrugt-1] == 5){
+     kastCinco--;
+    }
+       //6
+   if(alleKast[kastBrugt-1] == 6){
+     kastSeis--;
+    }
     
+    alleKast[kastBrugt-1] = 0;
+    kastBrugt--;
+  }
+}
+//OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
+//Histogram tegning
+void kastHistogram() {
+  if(alleKast[0] != 0 && alleKast[0] > 0) {
+    if(kastUno != 0) {
+      text(kastUno + " Stk", 10, (670 - (10 * kastUno)));
+      rect(0, (700 - (kastUno * 10)), 50, (10 * kastUno));
+    }
+    if(kastDos != 0) {
+      text(kastDos + " Stk", 63, (670 - (10 * kastDos)));
+      rect(53, (700 - (kastDos * 10)), 50, (10 * kastDos));
+    }
+    if(kastTres != 0) {
+      text(kastTres + " Stk", 115, (670 - (10 * kastTres)));
+      rect(106, (700 - (kastTres * 10)), 50, (10 * kastTres));
+    }
+    if(kastCuatro != 0) {
+      text(kastCuatro + " Stk", 168, (670 - (10 * kastCuatro)));
+      rect(159, (700 - (kastCuatro * 10)), 50, (10 * kastCuatro));
+    }
+    if(kastCinco != 0) {
+      text(kastCinco + " Stk", 222, (670 - (10 * kastCinco)));
+      rect(212, (700 - (kastCinco * 10)), 50, (10 * kastCinco));
+    }
+    if(kastSeis != 0) {
+      text(kastSeis + " Stk", 275, (670 - (10 * kastSeis)));
+      rect(265, (700 - (kastSeis * 10)), 50, (10 * kastSeis));
+    }
+  }
 }
 
 void udskrivKast(){
@@ -86,8 +148,17 @@ void udskrivKast(){
 
 void keyPressed() {
    clear();
+//OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
-   
+     noStroke();
+      text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
+      text("1'ere", 050, 700);
+      text("2'ere", 150, 700);
+      text("3'ere", 250, 700);
+      text("4'ere", 350, 700);
+      text("5'ere", 450, 700);
+      text("6'ere", 550, 700);
+      
 //Kast
   if (key=='k') {
     if(kastBrugt != antalKast && kastBrugt <= antalKast){
@@ -101,20 +172,15 @@ void keyPressed() {
     fill(255, 50, 50, 255);
     text("Du har brugt alle dine kast!", 200, 200);
       println("Du har brugt alle dine kast!");
-    
+   
     }
   udskrivKast();
 }
-
-  /*
-  if (key=='s'){
-    kastBrugt += -1;
-    
+//Slet kast
+    if (key=='s'){
+      sletSidsteKast();
+      if(kastBrugt != antalKast && kastBrugt <= antalKast){
+        fill(0, 255, 50, 255);
+    }
   }
-  */
-
 }  
-
-//OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
- // tegnFordeling();
-  //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
