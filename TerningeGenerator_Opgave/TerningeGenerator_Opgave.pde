@@ -4,8 +4,8 @@
 //3.) funktioner med og uden returtype
 //4.) funktioner med og uden input
 
-//OPGAVE: lav arrays, variabler til at gemme terningkast og fordeling af terningekast
-//Setup
+//OPGAVE: lav arrays, variabler til at gemme terningkast og fordeling af terningekast´
+
 //Kast setup
 int antalKast = 64;
 int[] alleKast = new int[antalKast];
@@ -13,6 +13,8 @@ int kastBrugt = 0;
 int kast;
 int nyesteKast;
 int totalKast = 0;
+
+boolean nice = false;
 
 // Histogram int
 int kastUno = 0;
@@ -22,6 +24,7 @@ int kastCuatro = 0;
 int kastCinco = 0;
 int kastSeis = 0;
 
+//Setup
 void setup() {
   size(1200, 800);
   clear();
@@ -29,7 +32,8 @@ void setup() {
   frameRate(69);
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
-  //Dice Logo
+  
+  //Dice Logo Setup
   strokeWeight(5);
   stroke(20, 50, 255);
   rect(1100, 60, 60, 60, 7);
@@ -54,7 +58,8 @@ void setup() {
 //Draw
 void draw() {
 }
-//Random Generator
+
+//Random Kast Generator
 int lavTerningeKast(int min, int max) {
   nyesteKast = (int(random(min, max + 1)));
   
@@ -63,25 +68,14 @@ if(nyesteKast == 1){
   kastUno++;
 }if(nyesteKast == 2){
   kastDos++;
-  rect(1100, 60, 60, 60, 7);
-  circle(1115, 75, 10); // 1
-  circle(1145, 105, 10); // 2
 }if(nyesteKast == 3){
   kastTres++;
-  rect(1100, 60, 60, 60, 7);
-//  circle(1130, 90, 10);
 }if(nyesteKast == 4){
   kastCuatro++;
-  rect(1100, 60, 60, 60, 7);
-//  circle(1130, 90, 10);
 }if(nyesteKast == 5){
   kastCinco++;
-  rect(1100, 60, 60, 60, 7);
- // circle(1130, 90, 10);
 }if(nyesteKast == 6){
   kastSeis++;}
-  rect(1100, 60, 60, 60, 7);
- // circle(1130, 90, 10);
 return nyesteKast;}
 
 
@@ -223,16 +217,14 @@ void keyPressed() {
     alleKast[kastBrugt] = kast;
     kastBrugt ++;    
     text("DIT SENESTE KAST BLEV: " + kast, 700, 120);
-    println("Dit kast var: " +(kast)); 
 }
   else {
     fill(255, 50, 50, 255);
-    text("DU HAR BRUGT ALLE DINE KAST!", 140, 300);
-      println("Du har brugt alle dine kast!");
+    text("DU HAR BRUGT ALLE DINE 64 KAST!", 140, 300);
   }
-
 }
-//Slet kast
+
+//Slet sidste kast
     if (key=='s'){
       sletSidsteKast();
       text("DIT SIDSTE KAST BLEV SLETTET!", 700, 120);
@@ -241,8 +233,12 @@ void keyPressed() {
     }
   } 
   if(((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6)) == 69){
+    nice = true;
     text("Nice.", 375, 175);
-    println("Nice.");
+    if(nice == true){
+    fill((random(100, 200)),(random(100, 200)),(random(100, 200)));
+    stroke((random(150, 250)),(random(150, 250)),(random(150, 250)));
+    }
   } else {
     text("Not nice.", 375, 175);
 }
