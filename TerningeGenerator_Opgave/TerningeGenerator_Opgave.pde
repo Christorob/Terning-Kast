@@ -32,15 +32,15 @@ void setup() {
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
   
 
-    //Histogram Text osv.
-  noStroke();
+    //Histogram Text osv.     
+noStroke();
   text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
-  text("1'ere", 050, 700);
-  text("2'ere", 150, 700);
-  text("3'ere", 250, 700);
-  text("4'ere", 350, 700);
-  text("5'ere", 450, 700);
-  text("6'ere", 550, 700);
+  text("1'ere",  60, 700);
+  text("2'ere", 165, 700);
+  text("3'ere", 270, 700);
+  text("4'ere", 375, 700);
+  text("5'ere", 480, 700);
+  text("6'ere", 585, 700);
 }
 
 //Draw
@@ -106,28 +106,28 @@ void sletSidsteKast(){
 void kastHistogram() {
   if(alleKast[0] != 0 && alleKast[0] > 0) {
     if(kastUno != 0) {
-      text(kastUno + " Stk", 10, (670 - (10 * kastUno)));
-      rect(0, (700 - (kastUno * 10)), 50, (10 * kastUno));
+      text(kastUno + " Stk", 60, (660 - (20 * kastUno)));
+      rect(55, (670 - (kastUno * 20)), 50, (20 * kastUno));
     }
     if(kastDos != 0) {
-      text(kastDos + " Stk", 63, (670 - (10 * kastDos)));
-      rect(53, (700 - (kastDos * 10)), 50, (10 * kastDos));
+      text(kastDos + " Stk", 165, (660 - (20 * kastDos)));
+      rect(160, (670 - (kastDos * 20)), 50, (20 * kastDos));
     }
     if(kastTres != 0) {
-      text(kastTres + " Stk", 115, (670 - (10 * kastTres)));
-      rect(106, (700 - (kastTres * 10)), 50, (10 * kastTres));
+      text(kastTres + " Stk", 270, (660 - (20 * kastTres)));
+      rect(265, (670 - (kastTres * 20)), 50, (20 * kastTres));
     }
     if(kastCuatro != 0) {
-      text(kastCuatro + " Stk", 168, (670 - (10 * kastCuatro)));
-      rect(159, (700 - (kastCuatro * 10)), 50, (10 * kastCuatro));
+      text(kastCuatro + " Stk", 375, (660 - (20 * kastCuatro)));
+      rect(370, (670 - (kastCuatro * 20)), 50, (20 * kastCuatro));
     }
     if(kastCinco != 0) {
-      text(kastCinco + " Stk", 222, (670 - (10 * kastCinco)));
-      rect(212, (700 - (kastCinco * 10)), 50, (10 * kastCinco));
+      text(kastCinco + " Stk", 480, (660 - (20 * kastCinco)));
+      rect(475, (670 - (kastCinco * 20)), 50, (20 * kastCinco));
     }
     if(kastSeis != 0) {
-      text(kastSeis + " Stk", 275, (670 - (10 * kastSeis)));
-      rect(265, (700 - (kastSeis * 10)), 50, (10 * kastSeis));
+      text(kastSeis + " Stk", 585, (660 - (20 * kastSeis)));
+      rect(580, (670 - (kastSeis * 20)), 50, (20 * kastSeis));
     }
   }
 }
@@ -152,12 +152,12 @@ void keyPressed() {
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
      noStroke();
       text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
-      text("1'ere", 050, 700);
-      text("2'ere", 150, 700);
-      text("3'ere", 250, 700);
-      text("4'ere", 350, 700);
-      text("5'ere", 450, 700);
-      text("6'ere", 550, 700);
+      text("1'ere",  60, 700);
+      text("2'ere", 165, 700);
+      text("3'ere", 270, 700);
+      text("4'ere", 375, 700);
+      text("5'ere", 480, 700);
+      text("6'ere", 585, 700);
       
 //Kast
   if (key=='k') {
@@ -174,7 +174,7 @@ void keyPressed() {
       println("Du har brugt alle dine kast!");
    
     }
-  udskrivKast();
+  
 }
 //Slet kast
     if (key=='s'){
@@ -183,4 +183,6 @@ void keyPressed() {
         fill(0, 255, 50, 255);
     }
   }
-}  
+kastHistogram();
+udskrivKast();
+}
