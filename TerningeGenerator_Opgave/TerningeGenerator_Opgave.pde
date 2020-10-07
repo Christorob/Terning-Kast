@@ -8,7 +8,7 @@
 
 //Setup
 
-int antalKast = 20;
+int antalKast = 64;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 int kast;
@@ -26,10 +26,17 @@ int kastSeis = 0;
 void setup() {
   size(1200, 800);
   clear();
-  textSize(20);
+  textSize(15);
   frameRate(69);
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
+  
+
+    //Histogram Text osv.
+  noStroke();
+  text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
+  
+  
 }
 
 //Draw
@@ -40,8 +47,13 @@ void draw() {
 void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
-       text("Kast " + (i + 1) + " blev:", 900, (150 + (i * 30)));
-       text(" " + alleKast[i], 1049, (150 + (i*30)));
+       if(i < 32){
+       text("Kast " + (i + 1) + " blev:", 700, (150 + (i * 20)));
+       text(" " + alleKast[i], 849, (150 + (i*20)));
+       } else { 
+       text("Kast " + (i + 1) + " blev:", 1000, (150 + (i * 20)-640));
+       text(" " + alleKast[i], 1149, (150 + (i*20)-640));
+       }
      }
   }
 }
@@ -56,7 +68,7 @@ void keyPressed() {
     int kast = lavTerningeKast(1,6);
     alleKast[kastBrugt] = kast;
     kastBrugt ++;    
-    text("DIT KAST BLEV: " + kast, 900, 100);
+    text("DIT KAST BLEV:         " + kast, 700, 100);
     println("Dit kast var: " +(kast)); 
 }
   else {
