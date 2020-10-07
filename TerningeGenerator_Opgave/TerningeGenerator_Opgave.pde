@@ -21,6 +21,14 @@ int kastCuatro = 0;
 int kastCinco = 0;
 int kastSeis = 0;
 
+boolean unoDice = false;
+boolean dosDice = false;
+boolean tresDice = false;
+boolean cuatroDice = false;
+boolean cincoDice = false;
+boolean seisDice = false;
+
+
 void setup() {
   size(1200, 800);
   clear();
@@ -55,19 +63,45 @@ int lavTerningeKast(int min, int max) {
 //Histogram værdi tracker
 if(nyesteKast == 1){
   kastUno++;
-  circle(1, 1, 1);
+  unoDice = true;
 }if(nyesteKast == 2){
   kastDos++;
+  dosDice = true;
 }if(nyesteKast == 3){
   kastTres++;
+  tresDice = true;
 }if(nyesteKast == 4){
   kastCuatro++;
+  cuatroDice = true;
 }if(nyesteKast == 5){
   kastCinco++;
+  cincoDice = true;
 }if(nyesteKast == 6){
   kastSeis++;}
+  SeisDice = true;
 return nyesteKast;}
 
+void dicePips(){
+ if(unoDice = true){
+   circle( 1140, 60, 10);
+ }
+ if(dosDice = true){
+   circle( 1115, 35, 10);
+ }
+ if(tresDice = true){
+   circle( , , 10);
+ }
+ if(cuatroDice = true){
+   circle( , , 10);
+ }
+ if(cincoDice = true){
+   circle( , , 10);
+ }
+ if(seisDice = true){
+   circle( , , 10);
+ }
+ 
+}
 //Slet sidste kast
 void sletSidsteKast(){
  if(alleKast[0] != 0 && alleKast[0] > 0){
