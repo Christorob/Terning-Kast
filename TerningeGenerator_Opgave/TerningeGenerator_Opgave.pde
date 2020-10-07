@@ -35,13 +35,39 @@ void setup() {
     //Histogram Text osv.
   noStroke();
   text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
-  
-  
+  text("1'ere", 50, 700);
+  text("2'ere", 50, 700);
+  text("3'ere", 50, 700);
+  text("4'ere", 50, 700);
+  text("5'ere", 50, 700);
+  text("6'ere", 50, 700);
 }
 
 //Draw
 void draw() {
+}
 
+//Random Generator
+int lavTerningeKast(int min, int max) {
+  int nyesteKast = (int(random(min, max + 1)));
+  
+//Histogram værdi tracker
+
+if(nyesteKast == 1){
+  kastUno++;
+}if(nyesteKast == 2){
+  kastDos++;
+}if(nyesteKast == 3){
+  kastTres++;
+}if(nyesteKast == 4){
+  kastCuatro++;
+}if(nyesteKast == 5){
+  kastCinco++;
+}if(nyesteKast == 6){
+  kastSeis++;
+}
+return nyesteKast;
+    
 }
 
 void udskrivKast(){
@@ -88,12 +114,7 @@ void keyPressed() {
   */
 
 }  
-int lavTerningeKast(int min, int max) {
-  int nyesteKast = (int(random(min, max + 1)));
-  return nyesteKast;
-   
-    
-}
+
 //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
  // tegnFordeling();
   //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
