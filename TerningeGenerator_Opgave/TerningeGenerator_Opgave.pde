@@ -24,11 +24,14 @@ int kastSeis = 0;
 void setup() {
   size(1200, 800);
   clear();
-  rect(1100, 40, 55, 55, 7);
   textSize(20);
   frameRate(69);
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
+  //Dice Logo
+  rectMode(CENTER);
+  rect(1140, 60, 55, 55, 7);
+  
   
 //Histogram Text osv.     
   noStroke();
@@ -43,7 +46,6 @@ void setup() {
 
 //Draw
 void draw() {
-  rect(1100, 40, 55, 55, 7);
 }
 
 //Random Generator
@@ -53,6 +55,7 @@ int lavTerningeKast(int min, int max) {
 //Histogram værdi tracker
 if(nyesteKast == 1){
   kastUno++;
+  circle(1, 1, 1);
 }if(nyesteKast == 2){
   kastDos++;
 }if(nyesteKast == 3){
@@ -136,8 +139,11 @@ void totalKast(){
 }
 void keyPressed() {
    clear();
-//Terning Logo
-rect(1100, 40, 55, 55, 7);
+   
+//Dice Logo Keypressed
+  rect(1140, 60, 55, 55, 7); 
+  
+  
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
      noStroke();
