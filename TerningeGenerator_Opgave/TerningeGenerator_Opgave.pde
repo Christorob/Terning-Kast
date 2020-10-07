@@ -31,7 +31,7 @@ void setup() {
   textSize(20);
   frameRate(69);
   fill(0, 255, 50, 255);
-  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
+  text("Tryk på 'k' for at kaste terningen & 's' for at slette dit seneste kast", 50, 50);
   
   //Dice Logo Setup
   strokeWeight(5);
@@ -201,7 +201,7 @@ void keyPressed() {
    clear();
    
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
-    text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
+    text("Tryk på 'k' for at kaste terningen & 's' for at slette dit seneste kast", 50, 50);
       text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
       text("1'ere",  60, 700);
       text("2'ere", 165, 700);
@@ -234,10 +234,10 @@ void keyPressed() {
   } 
   if(((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6)) == 69){
     nice = true;
-    text("Nice.", 375, 175);
     if(nice == true){
-    fill((random(100, 200)),(random(100, 200)),(random(100, 200)));
-    stroke((random(150, 250)),(random(150, 250)),(random(150, 250)));
+    text("Nice.", 375, 175);
+      fill((random(150, 250)),(random(150, 250)),(random(150, 250)));
+      stroke((random(150, 250)),(random(150, 250)),(random(150, 250)));
     }
   } else {
     text("Not nice.", 375, 175);
