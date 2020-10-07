@@ -114,22 +114,22 @@ void sletSidsteKast(){
 void kastHistogram() {
   if(alleKast[0] != 0 && alleKast[0] > 0) {
     if(kastUno != 0) {
-      text(kastUno + " Stk", 60, (660 - (20 * kastUno)));
+      text(kastUno + " 1'ere", 60, (660 - (20 * kastUno)));
       rect(55, (670 - (kastUno * 20)), 50, (20 * kastUno));}
     if(kastDos != 0) {
-      text(kastDos + " Stk", 165, (660 - (20 * kastDos)));
+      text(kastDos + " 2'ere", 165, (660 - (20 * kastDos)));
       rect(160, (670 - (kastDos * 20)), 50, (20 * kastDos));}
     if(kastTres != 0) {
-      text(kastTres + " Stk", 270, (660 - (20 * kastTres)));
+      text(kastTres + " 3'ere", 270, (660 - (20 * kastTres)));
       rect(265, (670 - (kastTres * 20)), 50, (20 * kastTres));}
     if(kastCuatro != 0) {
-      text(kastCuatro + " Stk", 375, (660 - (20 * kastCuatro)));
+      text(kastCuatro + " 4'ere", 375, (660 - (20 * kastCuatro)));
       rect(370, (670 - (kastCuatro * 20)), 50, (20 * kastCuatro));}
     if(kastCinco != 0) {
-      text(kastCinco + " Stk", 480, (660 - (20 * kastCinco)));
+      text(kastCinco + " 5'ere", 480, (660 - (20 * kastCinco)));
       rect(475, (670 - (kastCinco * 20)), 50, (20 * kastCinco));}
     if(kastSeis != 0) {
-      text(kastSeis + " Stk", 585, (660 - (20 * kastSeis)));
+      text(kastSeis + " 6'ere", 585, (660 - (20 * kastSeis)));
       rect(580, (670 - (kastSeis * 20)), 50, (20 * kastSeis));}
   }
 }
@@ -149,20 +149,23 @@ void udskrivKast(){
 void totalKast(){
   totalKast = ((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6));
   text("Total værdi af dine kast: " + totalKast, 50, 175);
+  if(kastBrugt > 0 && kastBrugt != 0){
   text("Gennemsnittelige værdi per kast: " + (totalKast / kastBrugt), 50, 225);
-
+  }
 }
 void keyPressed() {
    clear();
+   
+   /* EXPERIMENTAL TERNING BILLEDE:   */
    
 //Dice Logo Keypressed
   rect(1100, 60, 55, 55, 7); 
   //Dice Pips
  if(unoDice = true && dosDice == false && tresDice == false && cuatroDice == false && cincoDice == false && seisDice == false){
-   stroke(0);
+   stroke(0, 10);
    circle( 1127.5, 87.5, 10);
  }
- /*
+/* 
  if(dosDice = true){
    circle( 1115, 35, 10);
  }
@@ -179,7 +182,6 @@ void keyPressed() {
    circle( , , 10);
  }
  */
-
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
      noStroke();
