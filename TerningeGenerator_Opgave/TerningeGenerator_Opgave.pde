@@ -5,9 +5,8 @@
 //4.) funktioner med og uden input
 
 //OPGAVE: lav arrays, variabler til at gemme terningkast og fordeling af terningekast
-
 //Setup
-
+//Kast setup
 int antalKast = 64;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
@@ -15,7 +14,6 @@ int kast;
 int totalKast = 0;
 
 // Histogram int
-
 int kastUno = 0;
 int kastDos = 0;
 int kastTres = 0;
@@ -26,14 +24,14 @@ int kastSeis = 0;
 void setup() {
   size(1200, 800);
   clear();
+  rect(1100, 40, 55, 55, 7);
   textSize(20);
   frameRate(69);
   fill(0, 255, 50, 255);
-  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
+  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
   
-
-    //Histogram Text osv.     
-noStroke();
+//Histogram Text osv.     
+  noStroke();
   text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
   text("1'ere",  60, 700);
   text("2'ere", 165, 700);
@@ -45,6 +43,7 @@ noStroke();
 
 //Draw
 void draw() {
+  rect(1100, 40, 55, 55, 7);
 }
 
 //Random Generator
@@ -91,6 +90,7 @@ void sletSidsteKast(){
      alleKast[kastBrugt-1] = 0;
     kastBrugt--;}
   }
+  
 //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
 //Histogram tegning
 void kastHistogram() {
@@ -136,6 +136,8 @@ void totalKast(){
 }
 void keyPressed() {
    clear();
+//Terning Logo
+rect(1100, 40, 55, 55, 7);
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
      noStroke();
@@ -173,10 +175,10 @@ void keyPressed() {
   if(((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6)) == 69){
     text("Nice.", 375, 175);
     println("Nice.");
-  }else{
+  } else {
     text("Not nice.", 375, 175);
-
 }
+//Void ting ting
 kastHistogram();
 udskrivKast();
 totalKast();
