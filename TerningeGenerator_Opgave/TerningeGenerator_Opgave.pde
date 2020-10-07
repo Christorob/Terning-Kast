@@ -12,7 +12,7 @@ int antalKast = 64;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 int kast;
-int kastValue = kast;
+int totalKast = 0;
 
 // Histogram int
 
@@ -52,7 +52,6 @@ int lavTerningeKast(int min, int max) {
   int nyesteKast = (int(random(min, max + 1)));
   
 //Histogram værdi tracker
-
 if(nyesteKast == 1){
   kastUno++;
 }if(nyesteKast == 2){
@@ -64,43 +63,34 @@ if(nyesteKast == 1){
 }if(nyesteKast == 5){
   kastCinco++;
 }if(nyesteKast == 6){
-  kastSeis++;
-}
-return nyesteKast;   
-}
+  kastSeis++;}
+return nyesteKast;}
 
 //Slet sidste kast
 void sletSidsteKast(){
  if(alleKast[0] != 0 && alleKast[0] > 0){
        //1
    if(alleKast[kastBrugt-1] == 1){
-     kastUno--;
-    }
+     kastUno--;}
        //2
    if(alleKast[kastBrugt-1] == 2){
-     kastDos--;
-    }
+     kastDos--;}
        //3
    if(alleKast[kastBrugt-1] == 3){
-     kastTres--;
-    }
+     kastTres--;}
        //4
    if(alleKast[kastBrugt-1] == 4){
-     kastCuatro--;
-    }
+     kastCuatro--;}
        //5
    if(alleKast[kastBrugt-1] == 5){
-     kastCinco--;
-    }
+     kastCinco--;}
        //6
    if(alleKast[kastBrugt-1] == 6){
-     kastSeis--;
-    }
+     kastSeis--;}
        //0
      alleKast[kastBrugt-1] = 0;
-    kastBrugt--;
+    kastBrugt--;}
   }
-}
 //OPGAVE: lav manglende funktion til at fordelingen af terningekast. 
 //Histogram tegning
 void kastHistogram() {
@@ -173,6 +163,12 @@ void keyPressed() {
       if(kastBrugt != antalKast && kastBrugt <= antalKast){
         fill(0, 255, 50, 255);
     }
+  } 
+  if(((kastUno*1)+(kastDos*2)+(kastTres*3)+(kastCuatro*4)+(kastCinco*5)+(kastSeis*6)) == 69){
+    text("Nice.", 150, 150);
+    println("Nice.");
+  }else{
+      text("Not nice.", 50, 150);
   }
 kastHistogram();
 udskrivKast();
