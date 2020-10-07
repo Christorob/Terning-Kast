@@ -37,8 +37,7 @@ void setup() {
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
   //Dice Logo
-  rectMode(CENTER);
-  rect(1140, 60, 55, 55, 7);
+  rect(1100, 60, 55, 55, 7);
   
   
 //Histogram Text osv.     
@@ -64,6 +63,7 @@ int lavTerningeKast(int min, int max) {
 if(nyesteKast == 1){
   kastUno++;
   unoDice = true;
+  dosDice = false;
 }if(nyesteKast == 2){
   kastDos++;
   dosDice = true;
@@ -78,30 +78,11 @@ if(nyesteKast == 1){
   cincoDice = true;
 }if(nyesteKast == 6){
   kastSeis++;}
-  SeisDice = true;
+  seisDice = true;
 return nyesteKast;}
 
-void dicePips(){
- if(unoDice = true){
-   circle( 1140, 60, 10);
- }
- if(dosDice = true){
-   circle( 1115, 35, 10);
- }
- if(tresDice = true){
-   circle( , , 10);
- }
- if(cuatroDice = true){
-   circle( , , 10);
- }
- if(cincoDice = true){
-   circle( , , 10);
- }
- if(seisDice = true){
-   circle( , , 10);
- }
- 
-}
+
+
 //Slet sidste kast
 void sletSidsteKast(){
  if(alleKast[0] != 0 && alleKast[0] > 0){
@@ -175,9 +156,30 @@ void keyPressed() {
    clear();
    
 //Dice Logo Keypressed
-  rect(1140, 60, 55, 55, 7); 
-  
-  
+  rect(1100, 60, 55, 55, 7); 
+  //Dice Pips
+ if(unoDice = true && dosDice == false && tresDice == false && cuatroDice == false && cincoDice == false && seisDice == false){
+   stroke(0);
+   circle( 1127.5, 87.5, 10);
+ }
+ /*
+ if(dosDice = true){
+   circle( 1115, 35, 10);
+ }
+ if(tresDice = true){
+   circle( , , 10);
+ }
+ if(cuatroDice = true){
+   circle( , , 10);
+ }
+ if(cincoDice = true){
+   circle( , , 10);
+ }
+ if(seisDice = true){
+   circle( , , 10);
+ }
+ */
+
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
      noStroke();
