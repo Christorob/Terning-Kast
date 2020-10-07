@@ -26,15 +26,15 @@ int kastSeis = 0;
 void setup() {
   size(1200, 800);
   clear();
-  textSize(15);
+  textSize(20);
   frameRate(69);
   fill(0, 255, 50, 255);
-  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
+  text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
   
 
     //Histogram Text osv.     
 noStroke();
-  text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
+  text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
   text("1'ere",  60, 700);
   text("2'ere", 165, 700);
   text("3'ere", 270, 700);
@@ -96,8 +96,8 @@ void sletSidsteKast(){
    if(alleKast[kastBrugt-1] == 6){
      kastSeis--;
     }
-    
-    alleKast[kastBrugt-1] = 0;
+       //0
+     alleKast[kastBrugt-1] = 0;
     kastBrugt--;
   }
 }
@@ -107,31 +107,24 @@ void kastHistogram() {
   if(alleKast[0] != 0 && alleKast[0] > 0) {
     if(kastUno != 0) {
       text(kastUno + " Stk", 60, (660 - (20 * kastUno)));
-      rect(55, (670 - (kastUno * 20)), 50, (20 * kastUno));
-    }
+      rect(55, (670 - (kastUno * 20)), 50, (20 * kastUno));}
     if(kastDos != 0) {
       text(kastDos + " Stk", 165, (660 - (20 * kastDos)));
-      rect(160, (670 - (kastDos * 20)), 50, (20 * kastDos));
-    }
+      rect(160, (670 - (kastDos * 20)), 50, (20 * kastDos));}
     if(kastTres != 0) {
       text(kastTres + " Stk", 270, (660 - (20 * kastTres)));
-      rect(265, (670 - (kastTres * 20)), 50, (20 * kastTres));
-    }
+      rect(265, (670 - (kastTres * 20)), 50, (20 * kastTres));}
     if(kastCuatro != 0) {
       text(kastCuatro + " Stk", 375, (660 - (20 * kastCuatro)));
-      rect(370, (670 - (kastCuatro * 20)), 50, (20 * kastCuatro));
-    }
+      rect(370, (670 - (kastCuatro * 20)), 50, (20 * kastCuatro));}
     if(kastCinco != 0) {
       text(kastCinco + " Stk", 480, (660 - (20 * kastCinco)));
-      rect(475, (670 - (kastCinco * 20)), 50, (20 * kastCinco));
-    }
+      rect(475, (670 - (kastCinco * 20)), 50, (20 * kastCinco));}
     if(kastSeis != 0) {
       text(kastSeis + " Stk", 585, (660 - (20 * kastSeis)));
-      rect(580, (670 - (kastSeis * 20)), 50, (20 * kastSeis));
-    }
+      rect(580, (670 - (kastSeis * 20)), 50, (20 * kastSeis));}
   }
 }
-
 void udskrivKast(){
    for(int i=0; i < alleKast.length; i++){
      if(alleKast[i] !=0){
@@ -145,13 +138,12 @@ void udskrivKast(){
      }
   }
 }
-
 void keyPressed() {
    clear();
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
-    text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 100);
+    text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
      noStroke();
-      text("Fordelingen af dine kast, baseret på deres værdi:", 50, 730);  
+      text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
       text("1'ere",  60, 700);
       text("2'ere", 165, 700);
       text("3'ere", 270, 700);
@@ -165,20 +157,19 @@ void keyPressed() {
     int kast = lavTerningeKast(1,6);
     alleKast[kastBrugt] = kast;
     kastBrugt ++;    
-    text("DIT KAST BLEV:         " + kast, 700, 100);
+    text("DIT SENESTE KAST BLEV: " + kast, 700, 120);
     println("Dit kast var: " +(kast)); 
 }
   else {
     fill(255, 50, 50, 255);
-    text("Du har brugt alle dine kast!", 200, 200);
+    text("DU HAR BRUGT ALLE DINE KAST!", 125, 200);
       println("Du har brugt alle dine kast!");
-   
-    }
-  
+  }
 }
 //Slet kast
     if (key=='s'){
       sletSidsteKast();
+      text("DIT SIDSTE KAST BLEV SLETTET!", 700, 120);
       if(kastBrugt != antalKast && kastBrugt <= antalKast){
         fill(0, 255, 50, 255);
     }
