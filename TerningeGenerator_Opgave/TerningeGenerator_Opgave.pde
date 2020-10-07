@@ -11,6 +11,7 @@ int antalKast = 64;
 int[] alleKast = new int[antalKast];
 int kastBrugt = 0;
 int kast;
+int nyesteKast;
 int totalKast = 0;
 
 // Histogram int
@@ -29,9 +30,15 @@ void setup() {
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
   //Dice Logo
-  strokeWeight(4);
-  stroke(255);
-  rect(1100, 60, 55, 55, 7);
+  strokeWeight(5);
+  stroke(20, 50, 255);
+  rect(1100, 60, 60, 60, 7);
+  circle(1115, 75, 10); // top left
+  circle(1145, 75, 10); // top right
+  circle(1115, 105, 10); // bottom left
+  circle(1145, 105, 10); // bottom right
+  circle(1115, 90, 10); // middle left
+  circle(1145, 90, 10); // middle right
   
 //Histogram Text osv.     
  // noStroke();
@@ -47,24 +54,34 @@ void setup() {
 //Draw
 void draw() {
 }
-
 //Random Generator
 int lavTerningeKast(int min, int max) {
-  int nyesteKast = (int(random(min, max + 1)));
+  nyesteKast = (int(random(min, max + 1)));
   
 //Histogram værdi tracker
 if(nyesteKast == 1){
   kastUno++;
 }if(nyesteKast == 2){
   kastDos++;
+  rect(1100, 60, 60, 60, 7);
+  circle(1115, 75, 10); // 1
+  circle(1145, 105, 10); // 2
 }if(nyesteKast == 3){
   kastTres++;
+  rect(1100, 60, 60, 60, 7);
+//  circle(1130, 90, 10);
 }if(nyesteKast == 4){
   kastCuatro++;
+  rect(1100, 60, 60, 60, 7);
+//  circle(1130, 90, 10);
 }if(nyesteKast == 5){
   kastCinco++;
+  rect(1100, 60, 60, 60, 7);
+ // circle(1130, 90, 10);
 }if(nyesteKast == 6){
   kastSeis++;}
+  rect(1100, 60, 60, 60, 7);
+ // circle(1130, 90, 10);
 return nyesteKast;}
 
 
@@ -139,6 +156,53 @@ void totalKast(){
   text("Gennemsnittelige værdi per kast: " + (totalKast / kastBrugt), 50, 225);
   }
 }
+
+void terningePip(){
+  if(nyesteKast == 1){
+  rect(1100, 60, 60, 60, 7);
+  circle(1130, 90, 10); // middle
+  } 
+  
+  if(nyesteKast == 2){
+  rect(1100, 60, 60, 60, 7);
+  circle(1115, 75, 10); // top left
+  circle(1145, 105, 10); // bottom right
+  } 
+  
+  if(nyesteKast == 3){
+  rect(1100, 60, 60, 60, 7);
+  circle(1130, 90, 10); // middle
+  circle(1115, 75, 10); // top left
+  circle(1145, 105, 10); // bottom right
+  } 
+  
+  if(nyesteKast == 4){
+  rect(1100, 60, 60, 60, 7);
+  circle(1115, 75, 10); // top left
+  circle(1145, 75, 10); // top right
+  circle(1115, 105, 10); // bottom left
+  circle(1145, 105, 10); // bottom right
+  } 
+  
+  if(nyesteKast == 5){
+  rect(1100, 60, 60, 60, 7);
+  circle(1130, 90, 10); // middle
+  circle(1115, 75, 10); // top left
+  circle(1145, 75, 10); // top right
+  circle(1115, 105, 10); // bottom left
+  circle(1145, 105, 10); // bottom right
+  } 
+  
+  if(nyesteKast == 6){
+  rect(1100, 60, 60, 60, 7);
+  circle(1115, 75, 10); // top left
+  circle(1145, 75, 10); // top right
+  circle(1115, 105, 10); // bottom left
+  circle(1145, 105, 10); // bottom right
+  circle(1115, 90, 10); // middle left
+  circle(1145, 90, 10); // middle right
+  } 
+}
 void keyPressed() {
    clear();
    
@@ -166,6 +230,7 @@ void keyPressed() {
     text("DU HAR BRUGT ALLE DINE KAST!", 140, 300);
       println("Du har brugt alle dine kast!");
   }
+
 }
 //Slet kast
     if (key=='s'){
@@ -185,4 +250,5 @@ void keyPressed() {
 kastHistogram();
 udskrivKast();
 totalKast();
+terningePip();
 }
