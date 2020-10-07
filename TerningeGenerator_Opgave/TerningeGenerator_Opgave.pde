@@ -21,14 +21,6 @@ int kastCuatro = 0;
 int kastCinco = 0;
 int kastSeis = 0;
 
-boolean unoDice = false;
-boolean dosDice = false;
-boolean tresDice = false;
-boolean cuatroDice = false;
-boolean cincoDice = false;
-boolean seisDice = false;
-
-
 void setup() {
   size(1200, 800);
   clear();
@@ -37,11 +29,12 @@ void setup() {
   fill(0, 255, 50, 255);
   text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 75, 50);
   //Dice Logo
+  strokeWeight(4);
+  stroke(255);
   rect(1100, 60, 55, 55, 7);
   
-  
 //Histogram Text osv.     
-  noStroke();
+ // noStroke();
   text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
   text("1'ere",  60, 700);
   text("2'ere", 165, 700);
@@ -62,23 +55,16 @@ int lavTerningeKast(int min, int max) {
 //Histogram værdi tracker
 if(nyesteKast == 1){
   kastUno++;
-  unoDice = true;
-  dosDice = false;
 }if(nyesteKast == 2){
   kastDos++;
-  dosDice = true;
 }if(nyesteKast == 3){
   kastTres++;
-  tresDice = true;
 }if(nyesteKast == 4){
   kastCuatro++;
-  cuatroDice = true;
 }if(nyesteKast == 5){
   kastCinco++;
-  cincoDice = true;
 }if(nyesteKast == 6){
   kastSeis++;}
-  seisDice = true;
 return nyesteKast;}
 
 
@@ -156,35 +142,8 @@ void totalKast(){
 void keyPressed() {
    clear();
    
-   /* EXPERIMENTAL TERNING BILLEDE:   */
-   
-//Dice Logo Keypressed
-  rect(1100, 60, 55, 55, 7); 
-  //Dice Pips
- if(unoDice = true && dosDice == false && tresDice == false && cuatroDice == false && cincoDice == false && seisDice == false){
-   stroke(0, 10);
-   circle( 1127.5, 87.5, 10);
- }
-/* 
- if(dosDice = true){
-   circle( 1115, 35, 10);
- }
- if(tresDice = true){
-   circle( , , 10);
- }
- if(cuatroDice = true){
-   circle( , , 10);
- }
- if(cincoDice = true){
-   circle( , , 10);
- }
- if(seisDice = true){
-   circle( , , 10);
- }
- */
 //OPGAVE: lav manglende funktion der kan udskrive alle terningekast som tekst ...
     text("TRYK PÅ 'k' FOR AT KASTE TERNINGEN & 's' FOR AT SLETTE DET SIDSTE KAST", 50, 50);
-     noStroke();
       text("Fordelingen af dine kast, baseret på deres værdi:", 50, 120);  
       text("1'ere",  60, 700);
       text("2'ere", 165, 700);
